@@ -4,6 +4,8 @@ import { getMetricMetaInfo, timeToString } from '../utils/helpers'
 import UdaciSlider from './UdaciSlider'
 import UdaciSteppers from './UdaciSteppers'
 import DateHeader from './DateHeader'
+import TextButton from './TextButton'
+import { Ionicons } from '@expo/vector-icons'
 
 
 function SubmitBtn ({ onPress }) {
@@ -74,8 +76,35 @@ export default class AddEntry extends Component {
     // Clear local notification 
   }
   
+  reset = () => {
+    const key = timeToString()
+
+    //Update Redux
+
+    //Route to home
+
+    //Update DB
+  }
+
   render() {
     const metaInfo = getMetricMetaInfo()
+
+    if (this.props.alreadyLogged) {
+      return (
+        <View>
+          <Ionicons
+            name='ios-happy-outline'
+            size={100}
+          />
+          <Text>
+            You alreafy logged your information for today
+          </Text>
+          <TextButton onPress={this.reset}>
+            Reset
+          </TextButton>
+        </View>
+      )
+    }
 
     return (
       <View>
