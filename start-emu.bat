@@ -1,0 +1,1 @@
+C:\Users\renny\AppData\Local\Android\sdk\emulator\emulator.exe -avd Nexus_5X_API_25
