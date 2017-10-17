@@ -25,11 +25,11 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: 'row',
     flex: 1,
-    alignItems: 'center'
+    alignItems: 'center',
   },
   metricCounter: {
     width: 85,
     justifyContent: 'center',
-    alignItems: 'center',
-  }
+    alignItems: 'center'
+  },
 })

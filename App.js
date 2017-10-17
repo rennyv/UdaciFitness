@@ -1,42 +1,41 @@
 import React from 'react'
 import { View, Platform, StatusBar } from 'react-native'
 import AddEntry from './components/AddEntry'
-import History from './components/History'
-import EntryDetail from './components/EntryDetail'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import reducer from './reducers'
+import History from './components/History'
 import { TabNavigator, StackNavigator } from 'react-navigation'
 import { purple, white } from './utils/colors'
 import { FontAwesome, Ionicons } from '@expo/vector-icons'
 import { Constants } from 'expo'
+import EntryDetail from './components/EntryDetail'
 
-
-function UdaciStatusbar ({backgroundColor, ...props }) {
+function UdaciStatusBar ({backgroundColor, ...props}) {
   return (
-    <View style={{backgroundColor, height: Constants.statusBarHeight}}>
+    <View style={{ backgroundColor, height: Constants.statusBarHeight }}>
       <StatusBar translucent backgroundColor={backgroundColor} {...props} />
     </View>
   )
 }
 
 const Tabs = TabNavigator({
-  History:{
+  History: {
     screen: History,
     navigationOptions: {
-      tabbarLabel: 'History',
+      tabBarLabel: 'History',
       tabBarIcon: ({ tintColor }) => <Ionicons name='ios-bookmarks' size={30} color={tintColor} />
-    }
+    },
   },
   AddEntry: {
     screen: AddEntry,
     navigationOptions: {
-      tabbarLabel: 'Add Entry',
-      tabbarIcon: ({ tintColor }) => <FontAwesome name='plus-square' size={30} color={tintColor} />
-    }
-  }
+      tabBarLabel: 'Add Entry',
+      tabBarIcon: ({ tintColor }) => <FontAwesome name='plus-square' size={30} color={tintColor} />
+    },
+  },
 }, {
-  navigationOpions: {
+  navigationOptions: {
     header: null
   },
   tabBarOptions: {
@@ -44,7 +43,7 @@ const Tabs = TabNavigator({
     style: {
       height: 56,
       backgroundColor: Platform.OS === 'ios' ? white : purple,
-      shadowColor: 'rgba(0,0,0,0.24)',
+      shadowColor: 'rgba(0, 0, 0, 0.24)',
       shadowOffset: {
         width: 0,
         height: 3
@@ -75,7 +74,7 @@ export default class App extends React.Component {
     return (
       <Provider store={createStore(reducer)}>
         <View style={{flex: 1}}>
-          <UdaciStatusbar backgroundColor={purple}  barStyle='light-content' />
+          <UdaciStatusBar backgroundColor={purple} barStyle="light-content" />
           <MainNavigator />
         </View>
       </Provider>

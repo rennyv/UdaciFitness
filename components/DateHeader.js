@@ -9,4 +9,3 @@ export default function DateHeader ({ date }) {
     </Text>
   )
 }
-
